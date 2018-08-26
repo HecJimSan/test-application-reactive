@@ -14,7 +14,7 @@ import static org.springframework.http.MediaType.TEXT_PLAIN;
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
 @Configuration
-public class Config {
+public class RouterConfig {
 
     @Bean
     public RouterFunction<ServerResponse> route(InformationController informationController) {
