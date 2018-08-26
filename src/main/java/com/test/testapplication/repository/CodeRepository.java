@@ -8,5 +8,5 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 public interface CodeRepository {
-    String getCode(String country);
+    Mono<String> getCode(String country);
 }

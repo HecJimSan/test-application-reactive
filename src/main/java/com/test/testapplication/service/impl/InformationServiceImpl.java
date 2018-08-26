@@ -7,8 +7,6 @@ import com.test.testapplication.service.InformationService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
-
 @Service
 public class InformationServiceImpl implements InformationService {
 
@@ -22,18 +20,20 @@ public class InformationServiceImpl implements InformationService {
 
     @Override
     public Mono<InfoDetailsDTO> getDetails(String country, String description) {
-        String code = codeRepository.getCode(country);
+        return codeRepository.getCode(country)
+                .flatMap(code ->
+                        descriptionConnector.getDescriptionList(code)
+                                .map(x -> x.getDataCountry()
+                                        .stream()
+                                        .filter(z -> z.getDescription().equalsIgnoreCase(description))
+                                        .findFirst()
+                                        .map(y -> {
+                                            InfoDetailsDTO infoDetailsDTO = new InfoDetailsDTO();
+                                            infoDetailsDTO.setDescription(y.getDescription());
 
-        return descriptionConnector.getDescriptionList(code)
-                .map(x ->  x.getDataCountry()
-                                    .stream()
-                                    .filter(z -> z.getDescription().equalsIgnoreCase(description))
-                                    .findFirst()
-                                    .map(y -> {
-                                        InfoDetailsDTO infoDetailsDTO = new InfoDetailsDTO();
-                                        infoDetailsDTO.setDescription(y.getDescription());
-                                        infoDetailsDTO.setCode(code);
-                                        return infoDetailsDTO;
-                                    }).get());
+                                            infoDetailsDTO.setCode(code);
+                                            return infoDetailsDTO;
+                                        }).get()));
+
     }
 }
