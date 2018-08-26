@@ -1,0 +1,29 @@
+{
+  "country": [
+    {
+      "id": "1235",
+      "auth": false,
+      "description": "Get code about fiji",
+      "code": "0001",
+      "dataCountry":[{
+        "description": "population",
+        "code": "0001"
+      }
+      ]
+    },
+    {
+      "id": "andorra",
+      "auth": false,
+      "status": 200,
+      "description": "Get code about fiji",
+      "code": "0002"
+    },
+    {
+      "id": "peru",
+      "auth": false,
+      "status": 200,
+      "description": "Get code about fiji",
+      "code": "0003"
+    }
+  ]
+}

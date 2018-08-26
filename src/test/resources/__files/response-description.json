@@ -1,0 +1,28 @@
+{
+  "dataCountry":[
+    {
+      "code": "population",
+      "description":"1000 people"
+    },
+    {
+      "code": "cities",
+      "description":"10 cities"
+    },
+    {
+      "code": "beaches",
+      "description":"100 beaches"
+    },
+    {
+      "code": "mountains",
+      "description":"100 mountains"
+    },
+    {
+      "code": "religion",
+      "description":"non religion"
+    },
+    {
+      "code": "television",
+      "description":"3 programs of tv"
+    }
+  ]
+}

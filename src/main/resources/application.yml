@@ -1,0 +1,13 @@
+countries:
+  list:
+     - country: "fiji"
+       code: 0001
+     - country: "spain"
+       code: 1235
+     - country: "andorra"
+       code: 1236
+     - country: "china"
+       code: 1237
+
+description:
+  country: "http://localhost:3005"
