@@ -25,8 +25,7 @@ public class InformationServiceImpl implements InformationService {
         String code = codeRepository.getCode(country);
 
         return descriptionConnector.getDescriptionList(code)
-                .map(x -> {
-                            Optional<InfoDetailsDTO> infoDetailsDTO1 = x.getDataCountry()
+                .map(x ->  x.getDataCountry()
                                     .stream()
                                     .filter(z -> z.getDescription().equalsIgnoreCase(description))
                                     .findFirst()
@@ -35,10 +34,6 @@ public class InformationServiceImpl implements InformationService {
                                         infoDetailsDTO.setDescription(y.getDescription());
                                         infoDetailsDTO.setCode(code);
                                         return infoDetailsDTO;
-                                    });
-                            return infoDetailsDTO1
-                                    .get();
-                        }
-                );
+                                    }).get());
     }
 }
